@@ -1,5 +1,5 @@
 # Direction for Git based on Gitflow model
-This is a summary of the [successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/), developed by Vincent Driessen. This is largely the underlying structure of Gitflow, which is a popular addition to Git to add ease of use. However, I believe it is more transparent to work directly with the standard git commands.
+This is a summary of the [successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/), developed by Vincent Driessen. This is largely the underlying structure of Gitflow, which is a popular addition to Git to add ease of use. For a transparency purpose, the standard git commands will be used.
 
 ## Introduction
 For any given repository, `origin` should be treated as the only central repository. Each person who is working on the repository should have their own local copy, which they pull down from `origin`. Once they are satisfied with the work they have done, or they need to share it with the rest of the team, they then push the changes present in their local repository to `origin`. The exact push and pull commands will depend on the stage of work, which is covered below.
