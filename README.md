@@ -44,94 +44,93 @@ Or, if no existing repository exists, run the following from the project folder:
 
 Before you do any work, make sure your local `master` and `develop` branches are up to date with `origin`:
 
-git pull origin master
-git pull origin develop
-Feature Branches
+1. `git pull origin master`
+2. `git pull origin develop`
 
-Create
+## Feature Branches
+### Create
 
-Create the feature branch from the local develop branch: git checkout -b <featurename> develop
-Work
+1. Create the feature branch from the local `develop` branch: `git checkout -b <featurename> develop`
 
-Check you’re in the right branch:
-List branches: git branch
-If not in the feature branch: git checkout <featurename>
-Do work
-Commit locally:
-Add the files you want to commit: git add <filename>
-Commit the files at the local branch level: git commit -m "<commit message>"
-If you need to send your work on the feature to others:
-Push commits to origin: git push origin <featurename>
-If you need to receive work done on the feature by others:
-Pull commits from origin: git pull --rebase origin <featurename>
-Finalise
+### Work
+* Check you’re in the right branch:
+1. List branches: `git branch`
+2. If not in the `feature` branch: `git checkout <featurename>`
+* Do work
+* Commit locally:
+1. Add the files you want to commit: `git add <filename>`
+2. Commit the files at the local branch level: `git commit -m "<commit message>"`
+* If you need to send your work on the feature to others:
+3. Push commits to origin: git push origin <featurename>
+* If you need to receive work done on the feature by others:
+3. Pull commits from origin: `git pull --rebase origin <featurename>`
 
-Move to the develop branch: git checkout develop
-Merge into develop without fast-forwarding: git merge --no-ff <featurename>
-Delete the feature branch: git branch -d <featurename>
-Push develop to origin/develop: git push origin develop
-If you’ve previously pushed the feature branch to origin: git push origin :<featurename>
-Release Branches
+### Finalise
+1. Move to the develop branch: `git checkout develop`
+2. Merge into develop without fast-forwarding: git merge --no-ff <featurename>
+3. Delete the feature branch: git branch -d <featurename>
+4. Push develop to origin/develop: git push origin develop
+5. If you’ve previously pushed the feature branch to origin: git push origin :<featurename>
 
-Create
+## Release Branches
+## Create
+1. Create the release branch from the local develop branch: `git checkout -b release-<releasenumber> develop`
+2. Update documents to reflect change in release number (e.g. 1.1 -> 1.2)
+3. Commit changes: `git commit -a -m "Changed to version <releasenumber>"`
 
-Create the release branch from the local develop branch: git checkout -b release-<releasenumber> develop
-Update documents to reflect change in release number (e.g. 1.1 -> 1.2)
-Commit changes: git commit -a -m "Changed to version <releasenumber>"
-Work
+### Work
+* Check you’re in the right branch:
+1. List branches: git branch
+2. If not in the release branch: git checkout release-<releasenumber>
 
-Check you’re in the right branch:
-List branches: git branch
-If not in the release branch: git checkout release-<releasenumber>
-Do work
-Commit locally:
-Add the files you want to commit: git add <filename>
-Commit the files at the local branch level: git commit -m "<commit message>"
-If you need to send your work on the release to others:
-Push commits to origin: git push origin release-<releasenumber>
-If you need to receive work done on the release by others:
-Pull commits from origin: git pull --rebase origin release-<releasenumber>
-Finalise
+* Do work
+* Commit locally:
+1. Add the files you want to commit: `git add <filename>`
+2. Commit the files at the local branch level: `git commit -m "<commit message>"`
+* If you need to send your work on the release to others:
+3. Push commits to origin: git push origin release-<releasenumber>
+* If you need to receive work done on the release by others:
+3. Pull commits from origin: `git pull --rebase origin release-<releasenumber>`
 
-Move to the master branch: git checkout master
-Merge into the master branch without fast-forwarding: git merge --no-ff release-<releasenumber>
-Tag the release: git tag -a <releasenumber>
-Move to the develop branch: git checkout develop
-Merge into develop without fast-forwarding: git merge --no-ff release-<releasenumber>
-Delete the release branch: git branch -d release-<releasenumber>
-Push master to origin/master: git push origin master
-Push develop to origin/develop: git push origin develop
-Push tags: git push origin --tags
-If you’ve previously pushed the release branch to origin: git push origin :release-<releasenumber>
-Hotfix Branches
+### Finalise
+1. Move to the `master` branch: `git checkout master`
+2. Merge into the `master` branch without fast-forwarding: `git merge --no-ff release-<releasenumber>`
+3. Tag the release: `git tag -a <releasenumber>`
+4. Move to the `develop` branch: `git checkout develop`
+5. Merge into `develop` without fast-forwarding: `git merge --no-ff release-<releasenumber>`
+6. Delete the `release` branch: `git branch -d release-<releasenumber>`
+Push `master` to `origin/master`: `git push origin master`
+Push `develop` to origin/develop: `git push origin develop`
+Push tags: `git push origin --tags`
+If you’ve previously pushed the `release` branch to `origin`: `git push origin :release-<releasenumber>`
 
-Create
+### Hotfix Branches
+### Create
+1. Create the `hotfix` branch from the local `master` branch: `git checkout -b hotfix-<hotfixnumber> master`
+2. Update documents to reflect change in release number (e.g. 1.2.1 -> 1.2.2)
+3. Commit changes: `git commit -a -m "Changed to version <hotfixnumber>"`
 
-Create the hotfix branch from the local master branch: git checkout -b hotfix-<hotfixnumber> master
-Update documents to reflect change in release number (e.g. 1.2.1 -> 1.2.2)
-Commit changes: git commit -a -m "Changed to version <hotfixnumber>"
-Work
+### Work
+* Check you’re in the right branch:
+1. List branches: `git branch`
+2. If not in the `hotfix branch`: `git checkout hotfix-<hotfixnumber>`
+* Do work
+* Commit locally:
+1. Add the files you want to commit: `git add <filename>`
+2. Commit the files at the local branch level: `git commit -m "<commit message>"`
+* If you need to send your work on the hotfix to others:
+3. Push commits to `origin`: `git push origin hotfix-<hotfixnumber>`
+* If you need to receive work done on the release by others:
+3. Pull commits from origin: `git pull --rebase origin hotfix-<hotfixnumber>`
 
-Check you’re in the right branch:
-List branches: git branch
-If not in the hotfix branch: git checkout hotfix-<hotfixnumber>
-Do work
-Commit locally:
-Add the files you want to commit: git add <filename>
-Commit the files at the local branch level: git commit -m "<commit message>"
-If you need to send your work on the hotfix to others:
-Push commits to origin: git push origin hotfix-<hotfixnumber>
-If you need to receive work done on the release by others:
-Pull commits from origin: git pull --rebase origin hotfix-<hotfixnumber>
-Finalise
-
-Move to the master branch: git checkout master
-Merge into the master branch without fast-forwarding: git merge --no-ff hotfix-<hotfixnumber>
-Tag the release: git tag -a <hotfixnumber>
-Move to the develop branch: git checkout develop
-Merge into develop without fast-forwarding: git merge --no-ff hotfix-<hotfixnumber>
-Delete the hotfix branch: git branch -d hotfix-<hotfixnumber>
-Push master to origin/master: git push origin master
-Push develop to origin/develop: git push origin develop
-Push tags: git push origin --tags
-If you’ve previously pushed the hotfix branch to origin: git push origin :hotfix-<hotfixnumber>
+### Finalise
+1. Move to the `master` branch: `git checkout master`
+2. Merge into the `master` branch without fast-forwarding: `git merge --no-ff hotfix-<hotfixnumber>`
+3. Tag the release: `git tag -a <hotfixnumber>`
+4. Move to the `develop` branch: `git checkout develop`
+5. Merge into `develop` without fast-forwarding: `git merge --no-ff hotfix-<hotfixnumber>`
+6. Delete the hotfix branch: `git branch -d hotfix-<hotfixnumber>`
+7. Push `master` to `origin/master`: `git push origin master`
+8. Push `develop` to origin/develop: `git push origin develop`
+9. Push tags: `git push origin --tags`
+10. If you’ve previously pushed the hotfix branch to `origin`: `git push origin :hotfix-<hotfixnumber>`
